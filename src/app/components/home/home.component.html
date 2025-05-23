@@ -1,0 +1,41 @@
+<body>
+  <div class="app-container">
+    <img src="/home_background_image.jpg" alt="Background Image" class="background-image" />
+
+    <div class="three-column-row">
+      <div class="section">
+        <h2>⚽ Ligas disponibles</h2>
+        <select *ngIf="leagues.length > 0" (change)="onLeagueChange($event)">
+          <option *ngFor="let league of leagues" 
+                  [value]="league.idLeague"
+                  [selected]="league.idLeague === selectedLeagueId">
+            {{ league.strLeague }}
+          </option>
+        </select>
+      </div>
+
+      <div class="section">
+        <h2>🏆 Equipos</h2>
+        <ul *ngIf="teams.length > 0">
+          <li *ngFor="let team of teams">
+            <img [src]="team.strBadge" alt="{{ team.strTeam }}" (click)="goToPlayerList(team.idTeam)" />
+            <span (click)="goToPlayerList(team.idTeam)">{{ team.strTeam }}</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>📅 Partidos</h2>
+        <ul *ngIf="matches?.length">
+          <li *ngFor="let match of matches">
+            <span>{{ match.strHomeTeam }} 🆚 {{ match.strAwayTeam }}</span><br />
+            <small>({{ match.dateEvent }} {{ match.strTime }})</small>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <button class="logout-button" (click)="goToLogin()">🔒 Cerrar sesión</button>
+
+  </div>
+</body>

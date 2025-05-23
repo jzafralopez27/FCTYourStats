@@ -1,0 +1,22 @@
+<div class="sign-up-wrapper">
+  <img src="/signup_background_image.png" alt="Background Image" class="background-image" />
+    <div class="sign-up-container">
+      <h1>Registrarse</h1>
+      <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+        <label>
+          Nombre:
+          <input formControlName="name" />
+        </label>
+        <label>
+          Email:
+          <input formControlName="email" type="email" />
+        </label>
+        <label>
+          Contraseña:
+          <input formControlName="password" type="password" />
+        </label>
+        <button type="submit" [disabled]="signUpForm.invalid" class="submit-button">Registrarse</button>
+        <button type="button" class="back-button" (click)="goBack()">Volver al login</button>
+      </form>
+    </div>
+  </div>

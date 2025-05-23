@@ -1,0 +1,11 @@
+<div class="player-list-container">
+  <h2>Lista de Jugadores</h2>
+  <ul *ngIf="players.length > 0">
+    <li *ngFor="let player of players" (click)="goToPlayerDetail(player.idPlayer)">
+      <img *ngIf="player.strCutout" [src]="player.strCutout" alt="{{ player.strPlayer }}" width="50" height="50" />
+      <span>{{ player.strPlayer }} - {{ player.strPosition }}</span>
+    </li>
+  </ul>
+  <button class="back-button" (click)="goToHome()">Volver</button>
+  <p *ngIf="players.length === 0">No hay jugadores disponibles para este equipo.</p>
+</div>

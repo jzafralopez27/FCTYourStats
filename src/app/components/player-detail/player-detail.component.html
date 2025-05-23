@@ -1,0 +1,14 @@
+<div class="player-detail-container" *ngIf="playerDetails">
+  <h2>{{ playerDetails.strPlayer }}</h2>
+
+  <img *ngIf="playerDetails.strCutout" [src]="playerDetails.strCutout" alt="{{ playerDetails.strPlayer }}" class="player-image">
+
+  <div class="player-info">
+    <p><strong>Posición:</strong> {{ playerDetails.strPosition }}</p>
+    <p><strong>Equipo:</strong> {{ playerDetails.strTeam }}</p>
+    <p><strong>País:</strong> {{ playerDetails.strNationality }}</p>
+    <p><strong>Fecha de nacimiento:</strong> {{ playerDetails.dateBorn }}</p>
+    <p><strong>Descripción:</strong> {{ playerDetails.strDescriptionEN }}</p>
+
+  <button class="back-button" (click)="goBack()">Volver</button>
+</div>
